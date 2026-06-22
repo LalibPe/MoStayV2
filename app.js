@@ -8,20 +8,23 @@
 /* ═══════════════════════════════════════════════════════════
    1. NAVIGATION — Sticky + mobile toggle
 ═══════════════════════════════════════════════════════════ */
-(function initNav() {
+(function initNav()
+{
   const nav     = document.getElementById('site-nav');
   const toggle  = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
 
   // Scroll state
-  const onScroll = () => {
+  const onScroll = () =>
+  {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
   // Mobile toggle
-  toggle.addEventListener('click', () => {
+  toggle.addEventListener('click', () =>
+  {
     const isOpen = navLinks.classList.toggle('open');
     toggle.classList.toggle('active', isOpen);
     toggle.setAttribute('aria-expanded', isOpen);
@@ -29,7 +32,8 @@
 
   // Close mobile nav on link click
   navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', () =>
+    {
       navLinks.classList.remove('open');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', false);
@@ -40,7 +44,8 @@
 /* ═══════════════════════════════════════════════════════════
    2. SCROLL REVEAL — Intersection Observer
 ═══════════════════════════════════════════════════════════ */
-(function initScrollReveal() {
+(function initScrollReveal()
+{
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
