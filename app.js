@@ -371,3 +371,30 @@
 
   sections.forEach(s => observer.observe(s));
 })();
+
+/* ═══════════════════════════════════════════════════════════
+   6. IMAGE LOADING — Handling loading states for room cards
+   ═══════════════════════════════════════════════════════════ */
+(function initImageLoading() {
+  const imageContainers = document.querySelectorAll('.room-card-image');
+
+  imageContainers.forEach(container => {
+    const img = container.querySelector('img');
+    if (!img) return;
+
+    // Set initial loading state
+    container.classList.add('loading');
+
+    const onImageLoaded = () => {
+      container.classList.remove('loading');
+      container.classList.add('loaded');
+    };
+
+    if (img.complete) {
+      onImageLoaded();
+    } else {
+      img.addEventListener('load', onImageLoaded);
+      img.addEventListener('error', onImageLoaded); // Also clear loading on error
+    }
+  });
+})();
