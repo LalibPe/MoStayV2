@@ -1,0 +1,7 @@
+
+# Image optimization tools and backups
+node_modules/
+package.json
+package-lock.json
+optimize-images.js
+media/_originals/

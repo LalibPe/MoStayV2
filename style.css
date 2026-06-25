@@ -1799,6 +1799,7 @@ button
   aspect-ratio: 4/3;
   min-height: 350px;
   background: var(--clr-charcoal);
+  touch-action: none; /* Allow Pannellum to handle touch gestures */
 }
 
 .location-pano-hint {
@@ -1983,6 +1984,20 @@ button
     gap: var(--space-3);
   }
 
+  .location-map-wrap,
+  .location-pano-wrap {
+    min-height: 280px;
+  }
+
+  .lightbox-content {
+    max-width: 95vw;
+  }
+
+  .lightbox-content img {
+    max-height: 75vh;
+    border-radius: var(--radius-md);
+  }
+
   .contact-info-grid {
     grid-template-columns: 1fr;
   }
@@ -2021,6 +2036,22 @@ button
   .gallery-item:nth-child(1),
   .gallery-item:nth-child(7) {
     grid-column: span 1;
+  }
+
+  .lightbox-nav {
+    width: 36px;
+    height: 36px;
+  }
+
+  .lightbox-counter {
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-4);
+  }
+
+  .location-map-wrap,
+  .location-pano-wrap {
+    min-height: 240px;
+    aspect-ratio: 16/10;
   }
 }
 

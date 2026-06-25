@@ -477,6 +477,27 @@
     if (e.key === 'ArrowLeft') showPhoto(currentIndex - 1);
     if (e.key === 'ArrowRight') showPhoto(currentIndex + 1);
   });
+
+  // Touch swipe for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const SWIPE_THRESHOLD = 50;
+
+  lightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > SWIPE_THRESHOLD) {
+      if (diff > 0) {
+        showPhoto(currentIndex + 1); // Swipe left → next
+      } else {
+        showPhoto(currentIndex - 1); // Swipe right → prev
+      }
+    }
+  }, { passive: true });
 })();
 
 /* ═══════════════════════════════════════════════════════════
