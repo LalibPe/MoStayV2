@@ -10,3 +10,5 @@ flex on cards, triple room pored deluxe room u slucaju suzavanmja ekrana
 [PHONE_NUMBER]
 +38761191928
 
+[adress]
+Maršala Tita 25, Mostar 88000

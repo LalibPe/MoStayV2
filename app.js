@@ -8,23 +8,20 @@
 /* ═══════════════════════════════════════════════════════════
    1. NAVIGATION — Sticky + mobile toggle
 ═══════════════════════════════════════════════════════════ */
-(function initNav()
-{
-  const nav     = document.getElementById('site-nav');
-  const toggle  = document.getElementById('nav-toggle');
+(function initNav() {
+  const nav = document.getElementById('site-nav');
+  const toggle = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
 
   // Scroll state
-  const onScroll = () =>
-  {
+  const onScroll = () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
   // Mobile toggle
-  toggle.addEventListener('click', () =>
-  {
+  toggle.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
     toggle.classList.toggle('active', isOpen);
     toggle.setAttribute('aria-expanded', isOpen);
@@ -32,8 +29,7 @@
 
   // Close mobile nav on link click
   navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () =>
-    {
+    link.addEventListener('click', () => {
       navLinks.classList.remove('open');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', false);
@@ -44,8 +40,7 @@
 /* ═══════════════════════════════════════════════════════════
    2. SCROLL REVEAL — Intersection Observer
 ═══════════════════════════════════════════════════════════ */
-(function initScrollReveal()
-{
+(function initScrollReveal() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
@@ -73,13 +68,13 @@
    3. GUEST BOOKLET — Dynamic Rendering & Accordion
 ═══════════════════════════════════════════════════════════ */
 (function initBooklet() {
-  const container  = document.getElementById('booklet-container');
+  const container = document.getElementById('booklet-container');
   const searchInput = document.getElementById('booklet-search');
 
   if (!container || typeof guestDirectory === 'undefined') return;
 
   let activeCategory = 0; // index into guestDirectory
-  let searchQuery    = '';
+  let searchQuery = '';
 
   // ── 3a. Render sidebar tabs ──────────────────────────────
   function renderTabs() {
@@ -152,7 +147,7 @@
       accItem.className = 'accordion-item reveal';
 
       const triggerId = `acc-trigger-${activeCategory}-${idx}`;
-      const bodyId    = `acc-body-${activeCategory}-${idx}`;
+      const bodyId = `acc-body-${activeCategory}-${idx}`;
 
       accItem.innerHTML = `
         <button
@@ -181,7 +176,7 @@
       `;
 
       const trigger = accItem.querySelector('.accordion-trigger');
-      const body    = accItem.querySelector('.accordion-body');
+      const body = accItem.querySelector('.accordion-body');
 
       trigger.addEventListener('click', () => {
         const isOpen = trigger.classList.contains('open');
@@ -244,7 +239,7 @@
       const accItem = document.createElement('div');
       accItem.className = 'accordion-item reveal';
       const triggerId = `search-trigger-${idx}`;
-      const bodyId    = `search-body-${idx}`;
+      const bodyId = `search-body-${idx}`;
 
       accItem.innerHTML = `
         <button
@@ -273,7 +268,7 @@
       `;
 
       const trigger = accItem.querySelector('.accordion-trigger');
-      const body    = accItem.querySelector('.accordion-body');
+      const body = accItem.querySelector('.accordion-body');
 
       trigger.addEventListener('click', () => {
         const isOpen = trigger.classList.contains('open');
@@ -328,12 +323,12 @@
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      const el     = entry.target;
+      const el = entry.target;
       const target = parseInt(el.dataset.counter, 10);
-      const dur    = 1600;
-      const step   = 16;
-      const inc    = target / (dur / step);
-      let current  = 0;
+      const dur = 1600;
+      const step = 16;
+      const inc = target / (dur / step);
+      let current = 0;
 
       const tick = () => {
         current = Math.min(current + inc, target);
