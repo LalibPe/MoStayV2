@@ -393,3 +393,127 @@
     }
   });
 })();
+
+/* ═══════════════════════════════════════════════════════════
+   7. GALLERY LIGHTBOX — Click to expand, keyboard nav
+═══════════════════════════════════════════════════════════ */
+(function initGalleryLightbox() {
+  const grid = document.getElementById('gallery-grid');
+  const lightbox = document.getElementById('gallery-lightbox');
+  if (!grid || !lightbox) return;
+
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
+  const counter = document.getElementById('lightbox-counter');
+
+  const items = grid.querySelectorAll('.gallery-item');
+  const sources = [];
+
+  // Collect all image sources
+  items.forEach(item => {
+    const img = item.querySelector('img');
+    if (img) sources.push(img.src);
+  });
+
+  let currentIndex = 0;
+
+  function showPhoto(index) {
+    currentIndex = ((index % sources.length) + sources.length) % sources.length;
+    lightboxImg.src = sources[currentIndex];
+    lightboxImg.alt = `Gallery photo ${currentIndex + 1} of ${sources.length}`;
+    counter.textContent = `${currentIndex + 1} / ${sources.length}`;
+
+    // Re-trigger animation
+    lightboxImg.style.animation = 'none';
+    lightboxImg.offsetHeight; // Force reflow
+    lightboxImg.style.animation = '';
+  }
+
+  function openLightbox(index) {
+    showPhoto(index);
+    lightbox.hidden = false;
+    // Remove hidden first, then let the transition show it
+    requestAnimationFrame(() => {
+      lightbox.style.opacity = '1';
+      lightbox.style.visibility = 'visible';
+    });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.style.opacity = '0';
+    lightbox.style.visibility = 'hidden';
+    setTimeout(() => {
+      lightbox.hidden = true;
+    }, 300);
+    document.body.style.overflow = '';
+  }
+
+  // Click on gallery items
+  items.forEach((item, idx) => {
+    item.addEventListener('click', () => openLightbox(idx));
+  });
+
+  // Close
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.querySelector('.lightbox-overlay').addEventListener('click', closeLightbox);
+
+  // Navigation
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showPhoto(currentIndex - 1);
+  });
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showPhoto(currentIndex + 1);
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPhoto(currentIndex - 1);
+    if (e.key === 'ArrowRight') showPhoto(currentIndex + 1);
+  });
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   8. PANNELLUM 360 VIEWER — Lazy-loaded on scroll
+═══════════════════════════════════════════════════════════ */
+(function initPanorama() {
+  const viewerContainer = document.getElementById('panorama-viewer');
+  if (!viewerContainer || typeof pannellum === 'undefined') return;
+
+  let viewerInitialized = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !viewerInitialized) {
+        viewerInitialized = true;
+
+        pannellum.viewer('panorama-viewer', {
+          type: 'equirectangular',
+          panorama: 'media/360/MoStay 360.jpg',
+          autoLoad: true,
+          autoRotate: -2,
+          compass: false,
+          showZoomCtrl: true,
+          showFullscreenCtrl: true,
+          mouseZoom: true,
+          hfov: 110,
+          minHfov: 50,
+          maxHfov: 120,
+          pitch: 0,
+          yaw: 0
+        });
+
+        observer.unobserve(viewerContainer);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(viewerContainer);
+})();
+

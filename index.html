@@ -53,6 +53,8 @@
         <ul class="nav-links" id="nav-links" role="list">
           <li><a href="#about">About</a></li>
           <li><a href="#rooms">Rooms</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#location">Find Us</a></li>
           <li><a href="#directory">Guest Info</a></li>
           <li><a href="#contact">Contact</a></li>
           <li>
@@ -431,6 +433,180 @@
       </div>
     </section>
 
+    <!-- ── PHOTO GALLERY ──────────────────────────────────── -->
+    <section id="gallery" aria-labelledby="gallery-heading">
+      <div style="max-width: var(--max-width); margin-inline: auto;">
+
+        <header class="section-header reveal">
+          <span class="label-caps">Our Hotel</span>
+          <h2 class="section-title" id="gallery-heading">Gallery</h2>
+          <p class="section-desc">
+            Step inside MoStay — warm interiors, Mediterranean textures,
+            and spaces designed for comfort and elegance.
+          </p>
+          <div class="section-ornament" aria-hidden="true">
+            <span>✦</span>
+          </div>
+        </header>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="gallery-grid">
+          <div class="gallery-item reveal reveal-delay-1" data-index="0">
+            <img src="media/Lobby/LOBBY 01.jpg" alt="MoStay Boutique Hotel lobby — warm reception area" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item reveal reveal-delay-2" data-index="1">
+            <img src="media/Lobby/LOBBY 02.jpg" alt="MoStay lobby lounge seating area" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item reveal reveal-delay-3" data-index="2">
+            <img src="media/Lobby/LOBBY 03.jpg" alt="MoStay lobby interior design details" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item reveal reveal-delay-1" data-index="3">
+            <img src="media/Lobby/LOBBY 04.jpg" alt="MoStay lobby Mediterranean decor" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item reveal reveal-delay-2" data-index="4">
+            <img src="media/Lobby/LOBBY 05.jpg" alt="MoStay lobby lighting and ambiance" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item reveal reveal-delay-3" data-index="5">
+            <img src="media/Lobby/LOBBY 06.jpg" alt="MoStay lobby stone accents" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item reveal reveal-delay-1" data-index="6">
+            <img src="media/Lobby/LOBBY 07.jpg" alt="MoStay lobby elegant hallway" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item reveal reveal-delay-2" data-index="7">
+            <img src="media/Lobby/LOBBY 08.jpg" alt="MoStay lobby cozy corner" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item reveal reveal-delay-3" data-index="8">
+            <img src="media/Lobby/LOBBY 09.jpg" alt="MoStay lobby warm tones" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item reveal reveal-delay-1" data-index="9">
+            <img src="media/Lobby/LOBBY 10.jpg" alt="MoStay lobby natural textures" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item reveal reveal-delay-2" data-index="10">
+            <img src="media/Lobby/LOBBY 11.jpg" alt="MoStay lobby seating nook" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item reveal reveal-delay-3" data-index="11">
+            <img src="media/Lobby/LOBBY 12.jpg" alt="MoStay lobby artistic details" loading="lazy" decoding="async" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Gallery Lightbox -->
+    <div class="gallery-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Gallery photo viewer" hidden>
+      <div class="lightbox-overlay"></div>
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close gallery">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous photo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
+          <path d="m15 18-6-6 6-6"/>
+        </svg>
+      </button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Gallery photo full view" />
+      </div>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next photo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+      </button>
+      <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
+    <!-- ── HOW TO GET TO US / LOCATION ─────────────────────── -->
+    <section id="location" aria-labelledby="location-heading">
+      <div style="max-width: var(--max-width); margin-inline: auto;">
+
+        <header class="section-header reveal">
+          <span class="label-caps">Directions</span>
+          <h2 class="section-title" id="location-heading">How to Get to Us</h2>
+          <p class="section-desc">
+            We're located in the heart of Mostar, just minutes from the iconic Old Bridge.
+            Find us easily with Google Maps or explore our entrance in 360°.
+          </p>
+          <div class="section-ornament" aria-hidden="true">
+            <span>✦</span>
+          </div>
+        </header>
+
+        <!-- Address banner -->
+        <div class="location-address-banner reveal">
+          <div class="location-address-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+              <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="location-address-text">
+            <address style="font-style: normal;">
+              <strong>Maršala Tita 23, Mostar 88000</strong><br>
+              Bosnia &amp; Herzegovina
+            </address>
+          </div>
+        </div>
+
+        <!-- Two-column: Map + 360 -->
+        <div class="location-grid reveal">
+
+          <!-- Google Maps -->
+          <div class="location-map-card">
+            <div class="location-card-header">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Google Maps</span>
+            </div>
+            <div class="location-map-wrap">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.1!2d17.7908!3d43.3438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134b43a17a5c647f%3A0x2c32e491e4ea1b6b!2sMar%C5%A1ala%20Tita%2025%2C%20Mostar%2088000!5e0!3m2!1sen!2sba!4v1700000000000"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="MoStay Boutique Hotel location on Google Maps">
+              </iframe>
+            </div>
+            <a href="https://www.google.com/maps/search/Maršala+Tita+25+Mostar" target="_blank" rel="noopener" class="location-directions-btn" id="location-directions-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+                <path d="M18 8L22 12L18 16"/>
+                <path d="M2 12H22"/>
+              </svg>
+              Get Directions
+            </a>
+          </div>
+
+          <!-- 360 Panorama -->
+          <div class="location-pano-card">
+            <div class="location-card-header">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                <path d="M2 12h20"/>
+              </svg>
+              <span>360° Virtual Tour</span>
+            </div>
+            <div class="location-pano-wrap" id="panorama-viewer">
+              <!-- Pannellum initializes here -->
+            </div>
+            <div class="location-pano-hint">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14">
+                <path d="M5 9l7 7 7-7"/>
+              </svg>
+              Drag to look around · Scroll to zoom
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- ── GUEST BOOKLET / DIRECTORY ─────────────────────── -->
     <section id="directory" aria-labelledby="directory-heading">
       <div style="max-width: var(--max-width); margin-inline: auto;">
@@ -509,7 +685,7 @@
               </svg></div>
             <div class="contact-info-label">Address</div>
             <address class="contact-info-value" style="font-style: normal;">
-              Maršala Tita 25, Mostar
+              Maršala Tita 23, Mostar
             </address>
           </div>
           <div class="contact-info-card">
@@ -579,6 +755,8 @@
           <ul class="footer-links" role="list">
             <li><a href="#about">About Us</a></li>
             <li><a href="#rooms">Rooms &amp; Suites</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#location">Find Us</a></li>
             <li><a href="#directory">Guest Directory</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -663,6 +841,10 @@
     // Set current year in footer
     document.getElementById('footer-year').textContent = new Date().getFullYear();
   </script>
+  <!-- Pannellum 360 Viewer CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
   <script src="directory-data.js"></script>
   <script src="app.js"></script>
 
