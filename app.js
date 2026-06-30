@@ -24,6 +24,7 @@
   toggle.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
     toggle.classList.toggle('active', isOpen);
+    nav.classList.toggle('menu-open', isOpen);
     toggle.setAttribute('aria-expanded', isOpen);
   });
 
@@ -32,6 +33,7 @@
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
       toggle.classList.remove('active');
+      nav.classList.remove('menu-open');
       toggle.setAttribute('aria-expanded', false);
     });
   });

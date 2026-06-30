@@ -111,9 +111,9 @@ const guestDirectory = [
         title: "Apoteka",
         titleEn: "Pharmacy",
         content:
-          "Najbliža apoteka nalazi se 450 m od hotela (Apoteka Zalik, Zalik 15, Mostar 88104. Radno vrijeme: 08:00–20:00). U hitnim slučajevima kontaktirajte recepciju.",
+          "Najbliža apoteka nalazi se 450 m od hotela (<a href=\"https://www.google.com/maps/search/?api=1&query=Apoteka+Zalik,+Zalik+15,+Mostar+88104\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration: underline; font-weight: 500; color: inherit;\">Apoteka Zalik, Zalik 15, Mostar 88104</a>. Radno vrijeme: 08:00–20:00). U hitnim slučajevima kontaktirajte recepciju.",
         contentEn:
-          "The nearest pharmacy is 450 m from the hotel (Apoteka Zalik, Zalik 15, Mostar 88104. Hours: 08:00–20:00). In emergencies, contact reception.",
+          "The nearest pharmacy is 450 m from the hotel (<a href=\"https://www.google.com/maps/search/?api=1&query=Apoteka+Zalik,+Zalik+15,+Mostar+88104\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration: underline; font-weight: 500; color: inherit;\">Apoteka Zalik, Zalik 15, Mostar 88104</a>. Hours: 08:00–20:00). In emergencies, contact reception.",
       },
       {
         title: "Banka / Benzinska pumpa",
