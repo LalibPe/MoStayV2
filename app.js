@@ -395,12 +395,12 @@
 })();
 
 /* ═══════════════════════════════════════════════════════════
-   7. GALLERY LIGHTBOX — Click to expand, keyboard nav
+   7. SHARED LIGHTBOX — Reusable full-screen photo viewer
+   Used by both the Gallery section and Room Card galleries.
 ═══════════════════════════════════════════════════════════ */
-(function initGalleryLightbox() {
-  const grid = document.getElementById('gallery-grid');
+(function initLightbox() {
   const lightbox = document.getElementById('gallery-lightbox');
-  if (!grid || !lightbox) return;
+  if (!lightbox) return;
 
   const lightboxImg = document.getElementById('lightbox-img');
   const closeBtn = document.getElementById('lightbox-close');
@@ -408,33 +408,27 @@
   const nextBtn = document.getElementById('lightbox-next');
   const counter = document.getElementById('lightbox-counter');
 
-  const items = grid.querySelectorAll('.gallery-item');
-  const sources = [];
-
-  // Collect all image sources
-  items.forEach(item => {
-    const img = item.querySelector('img');
-    if (img) sources.push(img.src);
-  });
-
+  // ── Active image set (swapped in when lightbox opens) ─────
+  let activeSources = [];
   let currentIndex = 0;
 
   function showPhoto(index) {
-    currentIndex = ((index % sources.length) + sources.length) % sources.length;
-    lightboxImg.src = sources[currentIndex];
-    lightboxImg.alt = `Gallery photo ${currentIndex + 1} of ${sources.length}`;
-    counter.textContent = `${currentIndex + 1} / ${sources.length}`;
+    if (!activeSources.length) return;
+    currentIndex = ((index % activeSources.length) + activeSources.length) % activeSources.length;
+    lightboxImg.src = activeSources[currentIndex];
+    lightboxImg.alt = `Photo ${currentIndex + 1} of ${activeSources.length}`;
+    counter.textContent = `${currentIndex + 1} / ${activeSources.length}`;
 
-    // Re-trigger animation
+    // Re-trigger entrance animation
     lightboxImg.style.animation = 'none';
     lightboxImg.offsetHeight; // Force reflow
     lightboxImg.style.animation = '';
   }
 
-  function openLightbox(index) {
-    showPhoto(index);
+  function openLightbox(sources, startIndex) {
+    activeSources = sources;
+    showPhoto(startIndex || 0);
     lightbox.hidden = false;
-    // Remove hidden first, then let the transition show it
     requestAnimationFrame(() => {
       lightbox.style.opacity = '1';
       lightbox.style.visibility = 'visible';
@@ -451,16 +445,10 @@
     document.body.style.overflow = '';
   }
 
-  // Click on gallery items
-  items.forEach((item, idx) => {
-    item.addEventListener('click', () => openLightbox(idx));
-  });
-
-  // Close
+  // ── Controls ──────────────────────────────────────────────
   closeBtn.addEventListener('click', closeLightbox);
   lightbox.querySelector('.lightbox-overlay').addEventListener('click', closeLightbox);
 
-  // Navigation
   prevBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     showPhoto(currentIndex - 1);
@@ -480,7 +468,6 @@
 
   // Touch swipe for mobile
   let touchStartX = 0;
-  let touchEndX = 0;
   const SWIPE_THRESHOLD = 50;
 
   lightbox.addEventListener('touchstart', (e) => {
@@ -488,20 +475,112 @@
   }, { passive: true });
 
   lightbox.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const diff = touchStartX - touchEndX;
+    const diff = touchStartX - e.changedTouches[0].screenX;
     if (Math.abs(diff) > SWIPE_THRESHOLD) {
-      if (diff > 0) {
-        showPhoto(currentIndex + 1); // Swipe left → next
-      } else {
-        showPhoto(currentIndex - 1); // Swipe right → prev
-      }
+      diff > 0 ? showPhoto(currentIndex + 1) : showPhoto(currentIndex - 1);
     }
   }, { passive: true });
+
+  // ── Expose globally so other modules can call it ──────────
+  window.__lightbox = { open: openLightbox, close: closeLightbox };
+
+  // ─────────────────────────────────────────────────────────
+  // 7a. LOBBY GALLERY — wire the existing gallery grid
+  // ─────────────────────────────────────────────────────────
+  const grid = document.getElementById('gallery-grid');
+  if (grid) {
+    const gallerySources = [];
+    const items = grid.querySelectorAll('.gallery-item');
+    items.forEach(item => {
+      const img = item.querySelector('img');
+      if (img) gallerySources.push(img.src);
+    });
+    items.forEach((item, idx) => {
+      item.addEventListener('click', () => openLightbox(gallerySources, idx));
+    });
+  }
 })();
 
 /* ═══════════════════════════════════════════════════════════
-   8. PANNELLUM 360 VIEWER — Lazy-loaded on scroll
+   8. ROOM CARD GALLERY — Click room image → lightbox
+═══════════════════════════════════════════════════════════ */
+(function initRoomGallery() {
+  if (!window.__lightbox) return;
+
+  // Map each room type to its image paths (already compressed)
+  const roomImages = {
+    double: [
+      'media/Soba_2/SOBA 2 01.jpg',
+      'media/Soba_2/SOBA 2 02.jpg',
+      'media/Soba_2/SOBA 2 03.jpg',
+      'media/Soba_2/SOBA 2 04.jpg',
+      'media/Soba_2/SOBA 2 05.jpg',
+      'media/Soba_2/SOBA 2 06.jpg',
+      'media/Soba_2/SOBA 2 07.jpg',
+      'media/Soba_2/SOBA 2 09.jpg',
+      'media/Soba_3/SOBA 3 01.jpg',
+      'media/Soba_3/SOBA 3 02.jpg',
+      'media/Soba_3/SOBA 3 03.jpg',
+      'media/Soba_3/SOBA 3 04.jpg',
+      'media/Soba_3/SOBA 3 06.jpg',
+      'media/Soba_3/SOBA 3 07.jpg',
+      'media/Soba_3/SOBA 3 08.jpg',
+      'media/Soba_3/SOBA 3 13.jpg',
+      'media/Soba_4/SOBA 4 01.jpg',
+      'media/Soba_4/SOBA 4 02.jpg',
+      'media/Soba_4/SOBA 4 03.jpg',
+      'media/Soba_4/SOBA 4 04.jpg',
+      'media/Soba_4/SOBA 4 05.jpg',
+      'media/Soba_4/SOBA 4 06.jpg',
+      'media/Soba_4/SOBA 4 07.jpg',
+    ],
+    triple: [
+      'media/Soba_5/SOBA 5 01.jpg',
+      'media/Soba_5/SOBA 5 02.jpg',
+      'media/Soba_5/SOBA 5 03.jpg',
+      'media/Soba_5/SOBA 5 04.jpg',
+      'media/Soba_5/SOBA 5 05.jpg',
+      'media/Soba_5/SOBA 5 06.jpg',
+      'media/Soba_5/SOBA 5 07.jpg',
+      'media/Soba_5/1781692405799515.jpg',
+    ],
+    deluxe: [
+      'media/Soba_1/SOBA 1 01.jpg',
+      'media/Soba_1/SOBA 1 02.jpg',
+      'media/Soba_1/SOBA 1 05.jpg',
+      'media/Soba_1/SOBA 1 06.jpg',
+      'media/Soba_1/SOBA 1 08.jpg',
+      'media/Soba_1/SOBA 1 10.jpg',
+      'media/Soba_1/SOBA 1 12.jpg',
+      'media/Soba_1/SOBA 1 13.jpg',
+      'media/Soba_1/SOBA 1 14.jpg',
+    ],
+    'triple-single': [
+      'media/Soba_6/SOBA 6 01.jpg',
+      'media/Soba_6/SOBA 6 02.jpg',
+      'media/Soba_6/SOBA 6 03.jpg',
+      'media/Soba_6/SOBA 6 06.jpg',
+      'media/Soba_6/SOBA 6 08.jpg',
+    ],
+  };
+
+  // Attach click listeners to room card images with data-room-gallery
+  document.querySelectorAll('[data-room-gallery]').forEach(cardImage => {
+    const roomKey = cardImage.getAttribute('data-room-gallery');
+    const images = roomImages[roomKey];
+    if (!images || !images.length) return;
+
+    cardImage.style.cursor = 'pointer';
+    cardImage.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.__lightbox.open(images, 0);
+    });
+  });
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   9. PANNELLUM 360 VIEWER — Lazy-loaded on scroll
 ═══════════════════════════════════════════════════════════ */
 (function initPanorama() {
   const viewerContainer = document.getElementById('panorama-viewer');
