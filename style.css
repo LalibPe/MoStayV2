@@ -3,6 +3,14 @@
    Design System: Mediterranean Minimalist Luxury
    ============================================================ */
 
+/* Global Language Toggle Logic */
+body:not(.lang-en) .lang-en {
+  display: none !important;
+}
+body.lang-en .lang-bs {
+  display: none !important;
+}
+
 /* ── 1. DESIGN TOKENS ─────────────────────────────────────── */
 :root
 {
@@ -269,9 +277,9 @@ button
   display: none;
 }
 
-/* Make it slightly smaller when scrolled */
+/* Scrolled state: slightly smaller and moved up */
 #site-nav.scrolled .nav-logo {
-  top: var(--space-2);
+  top: -8px; /* Move it up a notch to prevent bottom cut-off */
   left: var(--space-4);
 }
 
@@ -369,6 +377,50 @@ button
   background: var(--clr-olive-deep) !important;
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
+}
+
+/* Language Switcher */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--clr-white);
+}
+
+#site-nav.scrolled .lang-switcher,
+#site-nav.menu-open .lang-switcher {
+  color: var(--clr-charcoal);
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  padding: 0 var(--space-1);
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+
+.lang-btn:hover {
+  opacity: 0.8;
+}
+
+.lang-btn.active {
+  opacity: 1;
+  font-weight: 700;
+}
+
+.lang-divider {
+  opacity: 0.4;
+  user-select: none;
 }
 
 /* Mobile nav toggle */
@@ -1294,6 +1346,38 @@ button
   padding-top: var(--space-3);
   border-top: 1px dashed var(--clr-sand);
   font-style: italic;
+}
+
+.gallery-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  padding: var(--space-3) var(--space-6);
+  background: var(--clr-olive-mid);
+  color: var(--clr-white);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  font-family: var(--font-sans);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.gallery-cta-btn:hover {
+  background: var(--clr-olive-deep);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.gallery-cta-btn:active {
+  transform: translateY(0);
+}
+
+.gallery-cta-btn svg {
+  flex-shrink: 0;
 }
 
 .booklet-empty {

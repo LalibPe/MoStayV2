@@ -7,6 +7,7 @@
 const guestDirectory = [
   {
     category: "Arrival & Departure",
+    categoryBs: "Dolazak i Odlazak",
     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 22V12h6v10M8 7h1m6 0h1M8 11h1m6 0h1"/></svg>',
     items: [
       {
@@ -29,6 +30,7 @@ const guestDirectory = [
   },
   {
     category: "In-Room Comfort",
+    categoryBs: "Udobnost u Sobi",
     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg>',
     items: [
       {
@@ -67,6 +69,7 @@ const guestDirectory = [
   },
   {
     category: "Dining & Services",
+    categoryBs: "Hrana i Usluge",
     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2m4-2v2"/></svg>',
     items: [
       {
@@ -76,6 +79,38 @@ const guestDirectory = [
           "Bogati buffet doručak se poslužuje u prizemlju u saradnji sa Mrvica Café & Pâtisserie. Pon-Pet: 07:00–10:30; Sub-Ned i praznici: 07:00–11:00.",
         contentEn:
           "A rich buffet breakfast is served on the ground floor in partnership with Mrvica Café & Pâtisserie. Mon–Fri: 07:00–10:30; Sat–Sun & holidays: 07:00–11:00.",
+        gallery: [
+          'media/BreakFast/MOSTAY - SLIKE (1).webp',
+          'media/BreakFast/MOSTAY - SLIKE (2).webp',
+          'media/BreakFast/MOSTAY - SLIKE (3).webp',
+          'media/BreakFast/MOSTAY - SLIKE (4).webp',
+          'media/BreakFast/MOSTAY - SLIKE (5).webp',
+          'media/BreakFast/MOSTAY - SLIKE (6).webp',
+          'media/BreakFast/MOSTAY - SLIKE (7).webp',
+          'media/BreakFast/MOSTAY - SLIKE (8).webp',
+          'media/BreakFast/MOSTAY - SLIKE (9).webp',
+          'media/BreakFast/MOSTAY - SLIKE (10).webp',
+          'media/BreakFast/MOSTAY - SLIKE (11).webp',
+          'media/BreakFast/MOSTAY - SLIKE (12).webp',
+          'media/BreakFast/MOSTAY - SLIKE (13).webp',
+          'media/BreakFast/MOSTAY - SLIKE (14).webp',
+          'media/BreakFast/MOSTAY - SLIKE (15).webp',
+          'media/BreakFast/MOSTAY - SLIKE (16).webp',
+          'media/BreakFast/MOSTAY - SLIKE (17).webp',
+          'media/BreakFast/MOSTAY - SLIKE (18).webp',
+          'media/BreakFast/MOSTAY - SLIKE (19).webp',
+          'media/BreakFast/MOSTAY - SLIKE (20).webp',
+          'media/BreakFast/MOSTAY - SLIKE (21).webp',
+          'media/BreakFast/MOSTAY - SLIKE (22).webp',
+          'media/BreakFast/MOSTAY - SLIKE (23).webp',
+          'media/BreakFast/MOSTAY - SLIKE (24).webp',
+          'media/BreakFast/MOSTAY - SLIKE (25).webp',
+          'media/BreakFast/MOSTAY - SLIKE (26).webp',
+          'media/BreakFast/MOSTAY - SLIKE (27).webp',
+          'media/BreakFast/MOSTAY - SLIKE (28).webp',
+          'media/BreakFast/MOSTAY - SLIKE (30).webp',
+          'media/BreakFast/MOSTAY - SLIKE (38).webp',
+        ],
       },
       {
         title: "Veš / Pranje",
@@ -97,6 +132,7 @@ const guestDirectory = [
   },
   {
     category: "Facilities & Surroundings",
+    categoryBs: "Sadržaji i Okolina",
     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>',
     items: [
       {
@@ -127,6 +163,7 @@ const guestDirectory = [
   },
   {
     category: "Hotel Policies",
+    categoryBs: "Pravila Hotela",
     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
     items: [
       {

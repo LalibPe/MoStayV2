@@ -6,6 +6,39 @@
  */
 
 /* ═══════════════════════════════════════════════════════════
+   LANGUAGE SWITCHER LOGIC
+═══════════════════════════════════════════════════════════ */
+(function initLanguage() {
+  const btnBs = document.getElementById('lang-btn-bs');
+  const btnEn = document.getElementById('lang-btn-en');
+  if (!btnBs || !btnEn) return;
+  function setLanguage(lang) {
+    const searchInput = document.getElementById('booklet-search');
+    if (lang === 'en') {
+      document.body.classList.add('lang-en');
+      btnEn.classList.add('active');
+      btnBs.classList.remove('active');
+      if (searchInput) searchInput.placeholder = 'Search...';
+    } else {
+      document.body.classList.remove('lang-en');
+      btnBs.classList.add('active');
+      btnEn.classList.remove('active');
+      if (searchInput) searchInput.placeholder = 'Pretraži...';
+    }
+    localStorage.setItem('mostay-lang', lang);
+  }
+
+  // Check saved preference
+  const savedLang = localStorage.getItem('mostay-lang');
+  if (savedLang) {
+    setLanguage(savedLang);
+  }
+
+  btnBs.addEventListener('click', () => setLanguage('bs'));
+  btnEn.addEventListener('click', () => setLanguage('en'));
+})();
+
+/* ═══════════════════════════════════════════════════════════
    1. NAVIGATION — Sticky + mobile toggle
 ═══════════════════════════════════════════════════════════ */
 (function initNav() {
@@ -91,7 +124,10 @@
       btn.id = `tab-${idx}`;
       btn.innerHTML = `
         <span class="tab-icon" aria-hidden="true">${cat.icon}</span>
-        <span class="tab-label">${cat.category}</span>
+        <span class="tab-label">
+          <span class="lang-bs">${cat.categoryBs}</span>
+          <span class="lang-en">${cat.category}</span>
+        </span>
         <span class="tab-count">${cat.items.length}</span>
       `;
       btn.addEventListener('click', () => {
@@ -127,7 +163,8 @@
     header.className = 'booklet-panel-title';
     header.innerHTML = `
       <span class="panel-icon" aria-hidden="true">${category.icon}</span>
-      ${category.category}
+      <span class="lang-bs">${category.categoryBs}</span>
+      <span class="lang-en">${category.category}</span>
     `;
     container.appendChild(header);
 
@@ -136,8 +173,14 @@
       empty.className = 'booklet-empty';
       empty.innerHTML = `
         <span class="booklet-empty-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
-        <p>No results found for "<strong>${searchQuery}</strong>"</p>
-        <p>Try searching in another category or using different keywords.</p>
+        <p>
+          <span class="lang-bs">Nema rezultata za "<strong>${searchQuery}</strong>"</span>
+          <span class="lang-en">No results found for "<strong>${searchQuery}</strong>"</span>
+        </p>
+        <p>
+          <span class="lang-bs">Pokušajte pretražiti u drugoj kategoriji ili koristiti druge ključne riječi.</span>
+          <span class="lang-en">Try searching in another category or using different keywords.</span>
+        </p>
       `;
       container.appendChild(empty);
       return;
@@ -159,8 +202,8 @@
           aria-controls="${bodyId}"
         >
           <span class="accordion-trigger-inner">
-            <span class="accordion-title-bs">${item.title}</span>
-            <span class="accordion-title-en">${item.titleEn}</span>
+            <span class="accordion-title-bs lang-bs">${item.title}</span>
+            <span class="accordion-title-en lang-en">${item.titleEn}</span>
           </span>
           <span class="accordion-chevron" aria-hidden="true">▾</span>
         </button>
@@ -171,8 +214,19 @@
           aria-labelledby="${triggerId}"
         >
           <div class="accordion-body-inner">
-            <p class="accordion-text-bs">${item.content}</p>
-            <p class="accordion-text-en">${item.contentEn}</p>
+            <p class="accordion-text-bs lang-bs">${item.content}</p>
+            <p class="accordion-text-en lang-en" style="padding-top: 0; border-top: none; font-style: normal;">${item.contentEn}</p>
+            ${item.gallery ? `
+              <button class="gallery-cta-btn" data-gallery-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <span class="lang-bs">Pogledajte Galeriju</span>
+                <span class="lang-en">View Breakfast Gallery</span>
+              </button>
+            ` : ''}
           </div>
         </div>
       `;
@@ -196,6 +250,17 @@
         trigger.setAttribute('aria-expanded', !isOpen);
         body.classList.toggle('open', !isOpen);
       });
+
+      // Gallery button inside accordion (e.g. Breakfast)
+      if (item.gallery && item.gallery.length && window.__lightbox) {
+        const galleryBtn = accItem.querySelector('[data-gallery-trigger]');
+        if (galleryBtn) {
+          galleryBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.__lightbox.open(item.gallery, 0);
+          });
+        }
+      }
 
       container.appendChild(accItem);
     });

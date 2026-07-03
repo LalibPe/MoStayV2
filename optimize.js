@@ -1,21 +1,34 @@
 const sharp = require('sharp');
 const fs = require('fs');
+const path = require('path');
 
-async function optimizeImages() {
-  const images = ['media/New_Pictures/Slika_2.jpg', 'media/New_Pictures/Slika_6.jpg'];
+async function optimizeBreakfast() {
+  const dir = 'media/BreakFast';
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.jpg'));
   
-  for (const img of images) {
-    const output = img.replace('.jpg', '.webp');
-    await sharp(img)
-      .webp({ quality: 80 })
-      .toFile(output);
-    console.log(`Optimized ${img} to ${output}`);
+  let totalBefore = 0;
+  let totalAfter = 0;
+
+  for (const file of files) {
+    const input = path.join(dir, file);
+    const output = path.join(dir, file.replace('.jpg', '.webp'));
     
-    // Check sizes
-    const before = fs.statSync(img).size;
-    const after = fs.statSync(output).size;
-    console.log(`Size reduced from ${(before/1024).toFixed(2)}KB to ${(after/1024).toFixed(2)}KB`);
+    const beforeSize = fs.statSync(input).size;
+    totalBefore += beforeSize;
+
+    await sharp(input)
+      .resize({ width: 1200, withoutEnlargement: true })
+      .webp({ quality: 78 })
+      .toFile(output);
+    
+    const afterSize = fs.statSync(output).size;
+    totalAfter += afterSize;
+    
+    console.log(`${file}: ${(beforeSize/1024).toFixed(0)}KB → ${(afterSize/1024).toFixed(0)}KB`);
   }
+
+  console.log(`\nTotal: ${(totalBefore/1024/1024).toFixed(2)}MB → ${(totalAfter/1024/1024).toFixed(2)}MB`);
+  console.log(`Saved: ${((1 - totalAfter/totalBefore) * 100).toFixed(1)}%`);
 }
 
-optimizeImages().catch(console.error);
+optimizeBreakfast().catch(console.error);
