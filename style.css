@@ -105,12 +105,26 @@ html
   -webkit-text-size-adjust: 100%;
 }
 
+/* Accessibility Utilities */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 body
 {
   font-family: var(--font-sans);
-  background-color: var(--clr-warm-white);
+  font-size: var(--text-base);
+  line-height: 1.6;
   color: var(--clr-charcoal);
-  line-height: 1.7;
+  background-color: var(--clr-warm-white);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
