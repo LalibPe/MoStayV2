@@ -151,7 +151,20 @@
 
   <link rel="stylesheet" href="style.css" />
   <!-- Pannellum 360 Viewer CSS (non-blocking) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" media="print"
+    onload="this.media='all'" />
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <!-- Vercel Speed Insights -->
+  <script>
+    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
 
 <body>
@@ -184,12 +197,14 @@
           <li><a href="#rooms"><span class="lang-bs">Sobe</span><span class="lang-en">Rooms</span></a></li>
           <li><a href="#gallery"><span class="lang-bs">Galerija</span><span class="lang-en">Gallery</span></a></li>
           <li><a href="#location"><span class="lang-bs">Lokacija</span><span class="lang-en">Find Us</span></a></li>
-          <li><a href="#directory"><span class="lang-bs">Informacije</span><span class="lang-en">Guest Info</span></a></li>
+          <li><a href="#directory"><span class="lang-bs">Informacije</span><span class="lang-en">Guest Info</span></a>
+          </li>
           <li><a href="#contact"><span class="lang-bs">Kontakt</span><span class="lang-en">Contact</span></a></li>
           <li><a href="https://www.instagram.com/mostay_boutique_hotel/" target="_blank"
               rel="noopener noreferrer">Instagram</a></li>
           <li>
-            <a href="#booking" class="nav-cta" id="nav-book-btn"><span class="lang-bs">Rezerviši</span><span class="lang-en">Book Now</span></a>
+            <a href="#booking" class="nav-cta" id="nav-book-btn"><span class="lang-bs">Rezerviši</span><span
+                class="lang-en">Book Now</span></a>
           </li>
         </ul>
 
@@ -318,13 +333,25 @@
           </span>
 
           <h2 class="about-title">
-            <span class="lang-bs">Inspirisan mediteranskim<br><em style="font-family: var(--font-display); color: var(--clr-clay); font-style: italic;">duhom Mostara</em></span>
-            <span class="lang-en">Inspired by the<br>Mediterranean<br><em style="font-family: var(--font-display); color: var(--clr-clay); font-style: italic;">soul of Mostar</em></span>
+            <span class="lang-bs">Inspirisan mediteranskim<br><em
+                style="font-family: var(--font-display); color: var(--clr-clay); font-style: italic;">duhom
+                Mostara</em></span>
+            <span class="lang-en">Inspired by the<br>Mediterranean<br><em
+                style="font-family: var(--font-display); color: var(--clr-clay); font-style: italic;">soul of
+                Mostar</em></span>
           </h2>
 
           <p class="about-body">
-            <span class="lang-bs">Inspirisan mediteranskim karakterom Mostara, MoStay Boutique Hotel nudi <strong>26 pažljivo dizajniranih soba</strong> inspirisanih prirodnim teksturama, toplim tonovima i opuštenim načinom života južne Bosne i Hercegovine. Bilo da provodite dan lutajući starim kamenim ulicama, otkrivajući skrivene kafiće, ili jednostavno uživajući u mirnoj večeri u hotelu — svaki trenutak u MoStay-u je dizajniran da se osjeća opušteno, elegantno i nezaboravno.</span>
-            <span class="lang-en">Inspired by the Mediterranean character of Mostar, MoStay Boutique Hotel offers <strong>26 carefully designed rooms</strong> inspired by natural textures, warm tones, and the relaxed lifestyle of southern Bosnia and Herzegovina. Whether you spend your day wandering the old stone streets, discovering hidden cafés, or simply enjoying a quiet evening at the hotel — every moment at MoStay is designed to feel effortless, elegant, and memorable.</span>
+            <span class="lang-bs">Inspirisan mediteranskim karakterom Mostara, MoStay Boutique Hotel nudi <strong>26
+                pažljivo dizajniranih soba</strong> inspirisanih prirodnim teksturama, toplim tonovima i opuštenim
+              načinom života južne Bosne i Hercegovine. Bilo da provodite dan lutajući starim kamenim ulicama,
+              otkrivajući skrivene kafiće, ili jednostavno uživajući u mirnoj večeri u hotelu — svaki trenutak u
+              MoStay-u je dizajniran da se osjeća opušteno, elegantno i nezaboravno.</span>
+            <span class="lang-en">Inspired by the Mediterranean character of Mostar, MoStay Boutique Hotel offers
+              <strong>26 carefully designed rooms</strong> inspired by natural textures, warm tones, and the relaxed
+              lifestyle of southern Bosnia and Herzegovina. Whether you spend your day wandering the old stone streets,
+              discovering hidden cafés, or simply enjoying a quiet evening at the hotel — every moment at MoStay is
+              designed to feel effortless, elegant, and memorable.</span>
           </p>
 
           <!-- Halal badge -->
@@ -433,8 +460,10 @@
             <span class="lang-en">Rooms &amp; Suites</span>
           </h2>
           <p class="section-desc">
-            <span class="lang-bs">Svaka soba priča priču o mediteranskoj toplini — pažljivo birane teksture, prirodne palete i udobnost koju zaslužujete.</span>
-            <span class="lang-en">Every room tells a story of Mediterranean warmth — curated textures, natural palettes, and all the comforts you deserve.</span>
+            <span class="lang-bs">Svaka soba priča priču o mediteranskoj toplini — pažljivo birane teksture, prirodne
+              palete i udobnost koju zaslužujete.</span>
+            <span class="lang-en">Every room tells a story of Mediterranean warmth — curated textures, natural palettes,
+              and all the comforts you deserve.</span>
           </p>
           <div class="section-ornament" aria-hidden="true">
             <span>✦</span>
@@ -475,27 +504,38 @@
                 <span class="lang-en">Double Room</span>
               </h3>
               <p class="room-card-desc">
-                <span class="lang-bs">Savršena za parove i putnike koji traže miran i udoban boravak u Mostaru. Dvokrevetna soba sadrži tople interijere inspirisane Mediteranom, veliki bračni krevet (king-size), moderno kupatilo i sve osnovne sadržaje potrebne za opuštajući boravak.</span>
-                <span class="lang-en">Perfect for couples and solo travelers looking for a peaceful and comfortable stay in Mostar. The Double Room features warm Mediterranean-inspired interiors, a comfortable king-size bed, a modern bathroom, and all essential amenities needed for a relaxing city stay.</span>
+                <span class="lang-bs">Savršena za parove i putnike koji traže miran i udoban boravak u Mostaru.
+                  Dvokrevetna soba sadrži tople interijere inspirisane Mediteranom, veliki bračni krevet (king-size),
+                  moderno kupatilo i sve osnovne sadržaje potrebne za opuštajući boravak.</span>
+                <span class="lang-en">Perfect for couples and solo travelers looking for a peaceful and comfortable stay
+                  in Mostar. The Double Room features warm Mediterranean-inspired interiors, a comfortable king-size
+                  bed, a modern bathroom, and all essential amenities needed for a relaxing city stay.</span>
               </p>
               <ul class="room-amenities-list" aria-label="Room amenities">
-                <li class="room-tag"><span class="lang-bs">Bračni krevet</span><span class="lang-en">King-size bed</span></li>
+                <li class="room-tag"><span class="lang-bs">Bračni krevet</span><span class="lang-en">King-size
+                    bed</span></li>
                 <li class="room-tag">Smart TV</li>
-                <li class="room-tag"><span class="lang-bs">Klima uređaj</span><span class="lang-en">Air conditioning</span></li>
+                <li class="room-tag"><span class="lang-bs">Klima uređaj</span><span class="lang-en">Air
+                    conditioning</span></li>
                 <li class="room-tag">Minibar</li>
-                <li class="room-tag"><span class="lang-bs">Aparat za kafu/čaj</span><span class="lang-en">Coffee setup</span></li>
-                <li class="room-tag"><span class="lang-bs">Walk-in tuš</span><span class="lang-en">Walk-in shower</span></li>
+                <li class="room-tag"><span class="lang-bs">Aparat za kafu/čaj</span><span class="lang-en">Coffee
+                    setup</span></li>
+                <li class="room-tag"><span class="lang-bs">Walk-in tuš</span><span class="lang-en">Walk-in shower</span>
+                </li>
                 <li class="room-tag"><span class="lang-bs">Fen za kosu</span><span class="lang-en">Hairdryer</span></li>
                 <li class="room-tag"><span class="lang-bs">Sef</span><span class="lang-en">Safe</span></li>
-                <li class="room-tag"><span class="lang-bs">Brzi WiFi</span><span class="lang-en">High-speed WiFi</span></li>
+                <li class="room-tag"><span class="lang-bs">Brzi WiFi</span><span class="lang-en">High-speed WiFi</span>
+                </li>
               </ul>
               <div class="room-card-footer">
                 <div class="room-price">
                   <span class="room-price-label"><span class="lang-bs">Od</span><span class="lang-en">From</span></span>
-                  <span class="room-price-value"><span class="lang-bs">Na upit</span><span class="lang-en">Contact us</span></span>
+                  <span class="room-price-value"><span class="lang-bs">Na upit</span><span class="lang-en">Contact
+                      us</span></span>
                 </div>
                 <a href="#contact" class="room-btn" id="cozy-book-btn">
-                  <span class="lang-bs">Rezerviši</span><span class="lang-en">Book</span> <span aria-hidden="true">→</span>
+                  <span class="lang-bs">Rezerviši</span><span class="lang-en">Book</span> <span
+                    aria-hidden="true">→</span>
                 </a>
               </div>
             </div>
@@ -527,27 +567,39 @@
                 <span class="lang-en">Triple Room</span>
               </h3>
               <p class="room-card-desc">
-                <span class="lang-bs">Prostrana i udobna soba namijenjena porodicama, prijateljima ili grupama koje traže dodatni prostor i udobnost tokom boravka u Mostaru. Dizajnirana s toplim interijerima inspirisanim Mediteranom, nudi opuštajuću atmosferu i sve sadržaje potrebne za ugodan boravak.</span>
-                <span class="lang-en">Spacious and comfortable room designed for families, friends, or groups seeking extra space and convenience during their stay in Mostar. Designed with warm Mediterranean-inspired interiors, offering a relaxing atmosphere and all the amenities needed for a pleasant and memorable stay.</span>
+                <span class="lang-bs">Prostrana i udobna soba namijenjena porodicama, prijateljima ili grupama koje
+                  traže dodatni prostor i udobnost tokom boravka u Mostaru. Dizajnirana s toplim interijerima
+                  inspirisanim Mediteranom, nudi opuštajuću atmosferu i sve sadržaje potrebne za ugodan boravak.</span>
+                <span class="lang-en">Spacious and comfortable room designed for families, friends, or groups seeking
+                  extra space and convenience during their stay in Mostar. Designed with warm Mediterranean-inspired
+                  interiors, offering a relaxing atmosphere and all the amenities needed for a pleasant and memorable
+                  stay.</span>
               </p>
               <ul class="room-amenities-list" aria-label="Room amenities">
-                <li class="room-tag"><span class="lang-bs">Bračni krevet</span><span class="lang-en">Queen-size bed</span></li>
-                <li class="room-tag"><span class="lang-bs">Krevet za jednu osobu</span><span class="lang-en">Single bed</span></li>
+                <li class="room-tag"><span class="lang-bs">Bračni krevet</span><span class="lang-en">Queen-size
+                    bed</span></li>
+                <li class="room-tag"><span class="lang-bs">Krevet za jednu osobu</span><span class="lang-en">Single
+                    bed</span></li>
                 <li class="room-tag">Smart TV</li>
-                <li class="room-tag"><span class="lang-bs">Klima uređaj</span><span class="lang-en">Air conditioning</span></li>
+                <li class="room-tag"><span class="lang-bs">Klima uređaj</span><span class="lang-en">Air
+                    conditioning</span></li>
                 <li class="room-tag">Minibar</li>
-                <li class="room-tag"><span class="lang-bs">Aparat za kafu/čaj</span><span class="lang-en">Coffee setup</span></li>
+                <li class="room-tag"><span class="lang-bs">Aparat za kafu/čaj</span><span class="lang-en">Coffee
+                    setup</span></li>
                 <li class="room-tag"><span class="lang-bs">Fen za kosu</span><span class="lang-en">Hairdryer</span></li>
                 <li class="room-tag"><span class="lang-bs">Sef</span><span class="lang-en">Safe</span></li>
-                <li class="room-tag"><span class="lang-bs">Brzi WiFi</span><span class="lang-en">High-speed WiFi</span></li>
+                <li class="room-tag"><span class="lang-bs">Brzi WiFi</span><span class="lang-en">High-speed WiFi</span>
+                </li>
               </ul>
               <div class="room-card-footer">
                 <div class="room-price">
                   <span class="room-price-label"><span class="lang-bs">Od</span><span class="lang-en">From</span></span>
-                  <span class="room-price-value"><span class="lang-bs">Na upit</span><span class="lang-en">Contact us</span></span>
+                  <span class="room-price-value"><span class="lang-bs">Na upit</span><span class="lang-en">Contact
+                      us</span></span>
                 </div>
                 <a href="#contact" class="room-btn" id="twin-book-btn">
-                  <span class="lang-bs">Rezerviši</span><span class="lang-en">Book</span> <span aria-hidden="true">→</span>
+                  <span class="lang-bs">Rezerviši</span><span class="lang-en">Book</span> <span
+                    aria-hidden="true">→</span>
                 </a>
               </div>
             </div>
@@ -584,27 +636,42 @@
                 <span class="lang-en">Mediterranean Deluxe Family Room</span>
               </h3>
               <p class="room-card-desc">
-                <span class="lang-bs">Prostrana i elegantna soba dizajnirana za porodice ili grupe do četiri gosta koji cijene dodatnu udobnost i profinjen boutique ambijent. Inspirisana mediteranskom estetikom i opuštenim duhom Hercegovine, Deluxe Porodična Soba nudi mirno i elegantno utočište nakon dana provedenog u istraživanju Mostara.</span>
-                <span class="lang-en">A spacious and elegant room designed for families or groups of up to four guests who appreciate extra comfort and a refined boutique atmosphere. Inspired by Mediterranean aesthetics and the relaxed spirit of Herzegovina, the Deluxe Family Room offers a calm and stylish retreat after a day spent exploring Mostar.</span>
+                <span class="lang-bs">Prostrana i elegantna soba dizajnirana za porodice ili grupe do četiri gosta koji
+                  cijene dodatnu udobnost i profinjen boutique ambijent. Inspirisana mediteranskom estetikom i opuštenim
+                  duhom Hercegovine, Deluxe Porodična Soba nudi mirno i elegantno utočište nakon dana provedenog u
+                  istraživanju Mostara.</span>
+                <span class="lang-en">A spacious and elegant room designed for families or groups of up to four guests
+                  who appreciate extra comfort and a refined boutique atmosphere. Inspired by Mediterranean aesthetics
+                  and the relaxed spirit of Herzegovina, the Deluxe Family Room offers a calm and stylish retreat after
+                  a day spent exploring Mostar.</span>
               </p>
               <ul class="room-amenities-list" aria-label="Room amenities">
-                <li class="room-tag"><span class="lang-bs">Bračni krevet (king-size)</span><span class="lang-en">King-size bed</span></li>
-                <li class="room-tag"><span class="lang-bs">Dva odvojena kreveta</span><span class="lang-en">Two single beds</span></li>
-                <li class="room-tag"><span class="lang-bs">Udoban prostor za sjedenje</span><span class="lang-en">Cozy seating area</span></li>
-                <li class="room-tag"><span class="lang-bs">Boutique ambijent</span><span class="lang-en">Boutique atmosphere</span></li>
-                <li class="room-tag"><span class="lang-bs">Walk-in tuš</span><span class="lang-en">Walk-in shower</span></li>
+                <li class="room-tag"><span class="lang-bs">Bračni krevet (king-size)</span><span
+                    class="lang-en">King-size bed</span></li>
+                <li class="room-tag"><span class="lang-bs">Dva odvojena kreveta</span><span class="lang-en">Two single
+                    beds</span></li>
+                <li class="room-tag"><span class="lang-bs">Udoban prostor za sjedenje</span><span class="lang-en">Cozy
+                    seating area</span></li>
+                <li class="room-tag"><span class="lang-bs">Boutique ambijent</span><span class="lang-en">Boutique
+                    atmosphere</span></li>
+                <li class="room-tag"><span class="lang-bs">Walk-in tuš</span><span class="lang-en">Walk-in shower</span>
+                </li>
                 <li class="room-tag"><span class="lang-bs">Fen za kosu</span><span class="lang-en">Hairdryer</span></li>
                 <li class="room-tag">Smart TV</li>
-                <li class="room-tag"><span class="lang-bs">Aparat za kafu/čaj</span><span class="lang-en">Coffee setup</span></li>
-                <li class="room-tag"><span class="lang-bs">Brzi WiFi</span><span class="lang-en">High-speed WiFi</span></li>
+                <li class="room-tag"><span class="lang-bs">Aparat za kafu/čaj</span><span class="lang-en">Coffee
+                    setup</span></li>
+                <li class="room-tag"><span class="lang-bs">Brzi WiFi</span><span class="lang-en">High-speed WiFi</span>
+                </li>
               </ul>
               <div class="room-card-footer">
                 <div class="room-price">
                   <span class="room-price-label"><span class="lang-bs">Od</span><span class="lang-en">From</span></span>
-                  <span class="room-price-value"><span class="lang-bs">Na upit</span><span class="lang-en">Contact us</span></span>
+                  <span class="room-price-value"><span class="lang-bs">Na upit</span><span class="lang-en">Contact
+                      us</span></span>
                 </div>
                 <a href="#contact" class="room-btn" id="deluxe-book-btn">
-                  <span class="lang-bs">Rezerviši</span><span class="lang-en">Book</span> <span aria-hidden="true">→</span>
+                  <span class="lang-bs">Rezerviši</span><span class="lang-en">Book</span> <span
+                    aria-hidden="true">→</span>
                 </a>
               </div>
             </div>
@@ -640,27 +707,40 @@
                 <span class="lang-en">Triple Single Room</span>
               </h3>
               <p class="room-card-desc">
-                <span class="lang-bs">Prostrana i udobna soba namijenjena porodicama, prijateljima ili grupama koje traže dodatni prostor i praktičnost tokom boravka u Mostaru. Dizajnirana s toplim interijerima inspirisanim Mediteranom, nudi opuštajuću atmosferu i sve sadržaje potrebne za ugodan i nezaboravan boravak.</span>
-                <span class="lang-en">Spacious and comfortable room designed for families, friends, or groups seeking extra space and convenience during their stay in Mostar. Designed with warm Mediterranean-inspired interiors, offering a relaxing atmosphere and all the amenities needed for a pleasant and memorable stay.</span>
+                <span class="lang-bs">Prostrana i udobna soba namijenjena porodicama, prijateljima ili grupama koje
+                  traže dodatni prostor i praktičnost tokom boravka u Mostaru. Dizajnirana s toplim interijerima
+                  inspirisanim Mediteranom, nudi opuštajuću atmosferu i sve sadržaje potrebne za ugodan i nezaboravan
+                  boravak.</span>
+                <span class="lang-en">Spacious and comfortable room designed for families, friends, or groups seeking
+                  extra space and convenience during their stay in Mostar. Designed with warm Mediterranean-inspired
+                  interiors, offering a relaxing atmosphere and all the amenities needed for a pleasant and memorable
+                  stay.</span>
               </p>
               <ul class="room-amenities-list" aria-label="Room amenities">
-                <li class="room-tag"><span class="lang-bs">Tri odvojena kreveta</span><span class="lang-en">Three single beds</span></li>
+                <li class="room-tag"><span class="lang-bs">Tri odvojena kreveta</span><span class="lang-en">Three single
+                    beds</span></li>
                 <li class="room-tag">Smart TV</li>
-                <li class="room-tag"><span class="lang-bs">Klima uređaj</span><span class="lang-en">Air conditioning</span></li>
+                <li class="room-tag"><span class="lang-bs">Klima uređaj</span><span class="lang-en">Air
+                    conditioning</span></li>
                 <li class="room-tag">Minibar</li>
-                <li class="room-tag"><span class="lang-bs">Aparat za kafu/čaj</span><span class="lang-en">Coffee setup</span></li>
-                <li class="room-tag"><span class="lang-bs">Walk-in tuš</span><span class="lang-en">Walk-in shower</span></li>
+                <li class="room-tag"><span class="lang-bs">Aparat za kafu/čaj</span><span class="lang-en">Coffee
+                    setup</span></li>
+                <li class="room-tag"><span class="lang-bs">Walk-in tuš</span><span class="lang-en">Walk-in shower</span>
+                </li>
                 <li class="room-tag"><span class="lang-bs">Fen za kosu</span><span class="lang-en">Hairdryer</span></li>
                 <li class="room-tag"><span class="lang-bs">Sef</span><span class="lang-en">Safe</span></li>
-                <li class="room-tag"><span class="lang-bs">Brzi WiFi</span><span class="lang-en">High-speed WiFi</span></li>
+                <li class="room-tag"><span class="lang-bs">Brzi WiFi</span><span class="lang-en">High-speed WiFi</span>
+                </li>
               </ul>
               <div class="room-card-footer">
                 <div class="room-price">
                   <span class="room-price-label"><span class="lang-bs">Od</span><span class="lang-en">From</span></span>
-                  <span class="room-price-value"><span class="lang-bs">Na upit</span><span class="lang-en">Contact us</span></span>
+                  <span class="room-price-value"><span class="lang-bs">Na upit</span><span class="lang-en">Contact
+                      us</span></span>
                 </div>
                 <a href="#contact" class="room-btn" id="triple-single-book-btn">
-                  <span class="lang-bs">Rezerviši</span><span class="lang-en">Book</span> <span aria-hidden="true">→</span>
+                  <span class="lang-bs">Rezerviši</span><span class="lang-en">Book</span> <span
+                    aria-hidden="true">→</span>
                 </a>
               </div>
             </div>
@@ -685,8 +765,10 @@
             <span class="lang-en">Gallery</span>
           </h2>
           <p class="section-desc">
-            <span class="lang-bs">Zakoračite u MoStay — topli interijeri, mediteranske teksture i prostori dizajnirani za udobnost i eleganciju.</span>
-            <span class="lang-en">Step inside MoStay — warm interiors, Mediterranean textures, and spaces designed for comfort and elegance.</span>
+            <span class="lang-bs">Zakoračite u MoStay — topli interijeri, mediteranske teksture i prostori dizajnirani
+              za udobnost i eleganciju.</span>
+            <span class="lang-en">Step inside MoStay — warm interiors, Mediterranean textures, and spaces designed for
+              comfort and elegance.</span>
           </p>
           <div class="section-ornament" aria-hidden="true">
             <span>✦</span>
@@ -783,8 +865,10 @@
             <span class="lang-en">How to Get to Us</span>
           </h2>
           <p class="section-desc">
-            <span class="lang-bs">Nalazimo se u srcu Mostara, samo nekoliko minuta od kultnog Starog Mosta. Pronađite nas lako pomoću Google Mapa ili istražite naš ulaz u 360°.</span>
-            <span class="lang-en">We're located in the heart of Mostar, just minutes from the iconic Old Bridge. Find us easily with Google Maps or explore our entrance in 360°.</span>
+            <span class="lang-bs">Nalazimo se u srcu Mostara, samo nekoliko minuta od kultnog Starog Mosta. Pronađite
+              nas lako pomoću Google Mapa ili istražite naš ulaz u 360°.</span>
+            <span class="lang-en">We're located in the heart of Mostar, just minutes from the iconic Old Bridge. Find us
+              easily with Google Maps or explore our entrance in 360°.</span>
           </p>
           <div class="section-ornament" aria-hidden="true">
             <span>✦</span>
@@ -886,8 +970,10 @@
             <span class="lang-en">Guest Directory</span>
           </h2>
           <p class="section-desc">
-            <span class="lang-bs">Sve što trebate znati o vašem boravku. Pretražujte ili pregledajte po kategorijama u nastavku.</span>
-            <span class="lang-en">Everything you need to know about your stay. Search or browse by category below.</span>
+            <span class="lang-bs">Sve što trebate znati o vašem boravku. Pretražujte ili pregledajte po kategorijama u
+              nastavku.</span>
+            <span class="lang-en">Everything you need to know about your stay. Search or browse by category
+              below.</span>
           </p>
           <div class="section-ornament" aria-hidden="true">
             <span>✦</span>
@@ -909,8 +995,8 @@
                 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">
                 Search guest directory
               </label>
-              <input type="search" id="booklet-search" name="booklet-search" placeholder="Search..."
-                autocomplete="off" spellcheck="false" aria-label="Search guest directory" />
+              <input type="search" id="booklet-search" name="booklet-search" placeholder="Search..." autocomplete="off"
+                spellcheck="false" aria-label="Search guest directory" />
             </div>
 
             <!-- Category tabs (populated by app.js) -->
@@ -940,13 +1026,17 @@
         </span>
 
         <h2 class="contact-title" id="contact-heading">
-          <span class="lang-bs">Spremni da doživite<br><em style="font-style: italic; color: var(--clr-clay-light);">Mostar?</em></span>
-          <span class="lang-en">Ready to Experience<br><em style="font-style: italic; color: var(--clr-clay-light);">Mostar?</em></span>
+          <span class="lang-bs">Spremni da doživite<br><em
+              style="font-style: italic; color: var(--clr-clay-light);">Mostar?</em></span>
+          <span class="lang-en">Ready to Experience<br><em
+              style="font-style: italic; color: var(--clr-clay-light);">Mostar?</em></span>
         </h2>
 
         <p class="contact-desc">
-          <span class="lang-bs">Naš tim na recepciji je dostupan 24 sata dnevno i uvijek je tu da vam pomogne isplanirati savršen boravak. Kontaktirajte nas direktno ili rezervišite sobu danas.</span>
-          <span class="lang-en">Our 24-hour reception team is always here to help you plan the perfect stay. Reach out directly or book your room today.</span>
+          <span class="lang-bs">Naš tim na recepciji je dostupan 24 sata dnevno i uvijek je tu da vam pomogne
+            isplanirati savršen boravak. Kontaktirajte nas direktno ili rezervišite sobu danas.</span>
+          <span class="lang-en">Our 24-hour reception team is always here to help you plan the perfect stay. Reach out
+            directly or book your room today.</span>
         </p>
 
         <!-- Info cards -->
@@ -1038,8 +1128,10 @@
               style="object-fit: contain; filter: opacity(0.8);" />
           </div>
           <p class="footer-brand-desc">
-            <span class="lang-bs">Gdje se mediteranska toplina susreće s hercegovačkom dušom.<br>26 jedinstvenih soba, jedna nezaboravna destinacija.</span>
-            <span class="lang-en">Where Mediterranean warmth meets Herzegovinian soul. <br>26 unique rooms, one unforgettable destination.</span>
+            <span class="lang-bs">Gdje se mediteranska toplina susreće s hercegovačkom dušom.<br>26 jedinstvenih soba,
+              jedna nezaboravna destinacija.</span>
+            <span class="lang-en">Where Mediterranean warmth meets Herzegovinian soul. <br>26 unique rooms, one
+              unforgettable destination.</span>
           </p>
           <div class="footer-socials">
             <a href="https://www.instagram.com/mostay_boutique_hotel/" target="_blank" rel="noopener noreferrer"
@@ -1063,10 +1155,12 @@
           </p>
           <ul class="footer-links" role="list">
             <li><a href="#about"><span class="lang-bs">O nama</span><span class="lang-en">About Us</span></a></li>
-            <li><a href="#rooms"><span class="lang-bs">Sobe i Apartmani</span><span class="lang-en">Rooms &amp; Suites</span></a></li>
+            <li><a href="#rooms"><span class="lang-bs">Sobe i Apartmani</span><span class="lang-en">Rooms &amp;
+                  Suites</span></a></li>
             <li><a href="#gallery"><span class="lang-bs">Galerija</span><span class="lang-en">Gallery</span></a></li>
             <li><a href="#location"><span class="lang-bs">Lokacija</span><span class="lang-en">Find Us</span></a></li>
-            <li><a href="#directory"><span class="lang-bs">Informacije</span><span class="lang-en">Guest Directory</span></a></li>
+            <li><a href="#directory"><span class="lang-bs">Informacije</span><span class="lang-en">Guest
+                  Directory</span></a></li>
             <li><a href="#contact"><span class="lang-bs">Kontakt</span><span class="lang-en">Contact</span></a></li>
           </ul>
         </div>
@@ -1078,10 +1172,14 @@
             <span class="lang-en">Rooms</span>
           </p>
           <ul class="footer-links" role="list">
-            <li><a href="#room-cozy"><span class="lang-bs">Dvokrevetna Soba (Bračni krevet)</span><span class="lang-en">Double Room</span></a></li>
-            <li><a href="#room-twin"><span class="lang-bs">Trokrevetna Soba</span><span class="lang-en">Triple Room</span></a></li>
-            <li><a href="#room-deluxe"><span class="lang-bs">Mediteranska Deluxe Porodična Soba</span><span class="lang-en">Mediterranean Deluxe Family Room</span></a></li>
-            <li><a href="#room-suite"><span class="lang-bs">Trokrevetna Soba (3 odvojena kreveta)</span><span class="lang-en">Triple Single Room</span></a></li>
+            <li><a href="#room-cozy"><span class="lang-bs">Dvokrevetna Soba (Bračni krevet)</span><span
+                  class="lang-en">Double Room</span></a></li>
+            <li><a href="#room-twin"><span class="lang-bs">Trokrevetna Soba</span><span class="lang-en">Triple
+                  Room</span></a></li>
+            <li><a href="#room-deluxe"><span class="lang-bs">Mediteranska Deluxe Porodična Soba</span><span
+                  class="lang-en">Mediterranean Deluxe Family Room</span></a></li>
+            <li><a href="#room-suite"><span class="lang-bs">Trokrevetna Soba (3 odvojena kreveta)</span><span
+                  class="lang-en">Triple Single Room</span></a></li>
           </ul>
         </div>
 
@@ -1142,7 +1240,7 @@
       <!-- Footer bottom bar -->
       <div class="footer-bottom">
         <p>
-          &copy; <span id="footer-year"></span> MoStay Boutique Hotel. 
+          &copy; <span id="footer-year"></span> MoStay Boutique Hotel.
           <span class="lang-bs">Sva prava zadržana.</span>
           <span class="lang-en">All rights reserved.</span>
           <br>
@@ -1153,13 +1251,13 @@
         <nav aria-label="Legal links">
           <ul class="footer-bottom-links" role="list">
             <li><a href="#">
-              <span class="lang-bs">Politika Privatnosti</span>
-              <span class="lang-en">Privacy Policy</span>
-            </a></li>
+                <span class="lang-bs">Politika Privatnosti</span>
+                <span class="lang-en">Privacy Policy</span>
+              </a></li>
             <li><a href="#">
-              <span class="lang-bs">Uslovi Korištenja</span>
-              <span class="lang-en">Terms of Use</span>
-            </a></li>
+                <span class="lang-bs">Uslovi Korištenja</span>
+                <span class="lang-en">Terms of Use</span>
+              </a></li>
           </ul>
         </nav>
       </div>
